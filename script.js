@@ -733,7 +733,7 @@ if ((currentScale === "Chromatic" || currentScale === "ChromaticExtended") && !s
 octaveLabel.textContent = `First ${currentChordCount} chords of the ${currentScale} Major scale`;
 document.getElementById('chord-detail-feedback').textContent = '';
 document.getElementById('adjust-controls').classList.remove('hidden');
-    document.getElementById('play-scale').classList.add('hidden'); // hide "Play Scale"
+document.getElementById('play-scale').classList.add('hidden'); // Hide default Play Scale button
     document.getElementById('display-toggle').classList.add('hidden'); // no toggle
     document.querySelector('#adjust-controls p').textContent = "Adjust chord range:";
     document.getElementById('replay-note').textContent = "Replay Chord";
@@ -742,13 +742,15 @@ document.getElementById('adjust-controls').classList.remove('hidden');
     playRefBtn.textContent = "Play reference, I chord";
     playRefBtn.onclick = () => playNote(chordData[currentScale].referenceChord);
 
-    const scaleRef = chordData[currentScale].scaleReference;
-if (scaleRef && !document.getElementById('play-scale-ref')) {
+    const existingBtn = document.getElementById('play-scale-ref');
+if (existingBtn) {
+  existingBtn.onclick = () => playNote(chordData[currentScale].scaleReference);
+} else {
   const scaleRefBtn = document.createElement('button');
   scaleRefBtn.textContent = "Play reference, scale";
   scaleRefBtn.className = "green-button";
   scaleRefBtn.id = "play-scale-ref";
-  scaleRefBtn.onclick = () => playNote(scaleRef);
+  scaleRefBtn.onclick = () => playNote(chordData[currentScale].scaleReference);
   playRefBtn.parentNode.insertBefore(scaleRefBtn, playRefBtn.nextSibling);
 }
 
@@ -954,6 +956,8 @@ return `${root} ${qualityCapitalized}`;
       gameScreen.classList.remove('hidden');
       resetScore();
       document.getElementById('replay-note').textContent = "Replay Note";
+      const existingScaleRef = document.getElementById('play-scale-ref');
+if (existingScaleRef) existingScaleRef.remove();
 
     // Show/hide controls based on scale
     const isChromatic = currentScale === "Chromatic";
