@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameScreen = document.getElementById('game-screen');
   const noteButtonsContainer = document.getElementById('note-buttons-container');
   const promptText = document.getElementById('prompt');
-  const playRefBtn = document.getElementById('play-reference');
   const playScaleBtn = document.getElementById('play-scale');
   const replayNoteBtn = document.getElementById('replay-note');
   const nextBtn = document.getElementById('next-button');
@@ -57,11 +56,13 @@ let currentChord = '';
 let currentChordOptions = [];
 let inChordMode = false;
 let selectedChordScale = '';
+let playRefBtn = document.getElementById('play-reference');
 function hideAllScreens() {
   // Stop any currently playing audio
   if (!audio.paused) {
     audio.pause();
     audio.currentTime = 0;
+    document.getElementById('scale-diagram').classList.add('hidden');
   }
 
   document.getElementById('main-menu').classList.add('hidden');
@@ -731,6 +732,7 @@ if ((currentScale === "Chromatic" || currentScale === "ChromaticExtended") && !s
     showDegrees = false;
     scaleLabel.textContent = chordData[currentScale].label;
 octaveLabel.textContent = `First ${currentChordCount} chords of the ${currentScale} Major scale`;
+document.getElementById('scale-diagram').classList.add('hidden');
 document.getElementById('chord-detail-feedback').textContent = '';
 document.getElementById('adjust-controls').classList.remove('hidden');
 document.getElementById('play-scale').classList.add('hidden'); // Hide default Play Scale button
@@ -902,6 +904,10 @@ return `${root} ${qualityCapitalized}`;
     }
   }
 
+  function handleReferenceNoteClick() {
+    playNote(scaleData[currentScale].referenceNote);
+  }
+
   document.querySelectorAll('.scale-select').forEach(btn => {
     btn.addEventListener('click', () => {
       currentScale = btn.getAttribute('data-scale');
@@ -981,6 +987,10 @@ if (existingScaleRef) existingScaleRef.remove();
     playRefBtn.textContent = isChromatic
       ? `Play Reference (${scaleData[currentScale].noteOrder[0]})`
       : `Play Reference (${scaleData[currentScale].noteOrder[0]} - Tonic)`;
+
+      playRefBtn.replaceWith(playRefBtn.cloneNode(true)); // Reset all event listeners
+playRefBtn = document.getElementById('play-reference'); // Reassign the button reference
+playRefBtn.addEventListener('click', handleReferenceNoteClick);
 
     loadNewNote();
     });
