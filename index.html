@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Relative Pitch Game - All Major Scales</title>
+  <link rel="stylesheet" href="style.css" />
+<script src="script.js" defer></script></head>
+<body>
+  <div class="container">
+    <div id="main-menu">
+      <h1 class="game-title">The Relative Pitch Game 🎹🎶</h1>
+      <h2>Select a Game! 🎮</h2>
+      <p>Welcome to The Relative Pitch Game! Below are a selection of different games
+        designed to help test and develop you ear, loseley organised from easiest to hardest.
+        Begin wherever you would like, and have fun!</p>
+      <button id="compare-mode-btn" class="blue-bold-button">Higher or Lower?</button>
+      <div style="margin-top: 8px;""></div>
+      <button id="major-scales-btn" class="blue-bold-button">Notes of the Major Scale</button>
+      <div style="margin-top: 8px;""></div>
+      <button id="chromatic-menu-btn" class="blue-bold-button">Chromatic Notes</button>
+      <div style="margin-top: 8px;""></div>
+      <button id="diatonic-chords-btn" class="blue-bold-button">Diatonic Chords</button>
+ <div></div>
+      <h3>More</h3>
+      <button id="about-btn" class="blue-bold-button">About</button>
+    </div>
+    
+    <div id="major-scale-menu" class="hidden">
+      <div class="start-content">
+        <h1 class="game-title">The Relative Pitch Game 🎹🎶</h1>
+        <div></div>
+        <button id="back-to-home-from-major" class="green-button back-button">🏠 Home</button>
+        <h2>Select a Major Scale</h2>
+
+      <h3>Major scale with no sharps or flats</h3>
+      <button class="green-button scale-select" data-scale="C">C Major</button>
+
+      <h3>Major scales with sharps (#)</h3>
+      <button class="green-button scale-select" data-scale="G">G Major</button>
+      <button class="green-button scale-select" data-scale="D">D Major</button>
+      <button class="green-button scale-select" data-scale="A">A Major</button>
+      <button class="green-button scale-select" data-scale="E">E Major</button>
+
+      <h3>Major scales with flats (b)</h3>
+      <button class="green-button scale-select" data-scale="F">F Major</button>
+      <button class="green-button scale-select" data-scale="Bb">Bb Major</button>
+      <button class="green-button scale-select" data-scale="Eb">Eb Major</button>
+      <button class="green-button scale-select" data-scale="Ab">Ab Major</button>
+
+      <h3>Enharmonic Major Scales</h3>
+      <button class="green-button scale-select" data-scale="B">B Major (Cb Major)</button>
+      <button class="green-button scale-select" data-scale="F#">F# Major (Gb Major)</button>
+      <button class="green-button scale-select" data-scale="C#">C# Major (Db Major)</button>
+      <p>Note: enharmonic scales have notes that share the same pitch,
+      however these shared pitches could be written with either sharps or flats.
+      e.g. in F# Major the second note is 'G#', in Gb major the second note
+is 'Ab' - both G# and Ab are the same pitch, we are just labelling them differently.</p>
+    </div>
+</div>
+
+<div id="chromatic-scale-menu" class="hidden">
+  <div class="start-content">
+    <h1 class="game-title">The Relative Pitch Game 🎹🎶</h1>
+    <button id="back-to-home-from-chromatic" class="green-button back-button">🏠 Home</button>
+    <h2>Select a Chromatic Mode</h2>
+
+    <button id="chromatic-btn" class="green-button">Chromatic - One Octave</button>
+    <button id="chromatic-extended-btn" class="green-button">Chromatic - Three Octaves</button>
+  <div></div>
+    <p>In this version the game will play any of the 12 chromatic notes, spanning either one
+    or three octaves. The number, ie 'A4', denotes where on the piano the note is being
+    played. This is substantially more difficult than the major scale version becuase we cannot
+    easily rely on the tonality, or 'sound', of the major scale to navigate from a tonic
+    to the next note.
+  </p>
+  </div>
+</div>
+
+<div id="about-page" class="hidden">
+  <div class="start-content">
+    <h1 class="game-title">The Relative Pitch Game 🎹🎶</h1>
+    <button id="back-to-home-from-about" class="green-button back-button">🏠 Home</button>
+    <h2>What Is Relative Pitch</h2>
+    <p>
+      Relative pitch is the ability to identify a pitch, or note,
+      when given a reference pitch first - it is different to
+      perfect or ‘absolute’ pitch where an individual can identify a note
+      without the need to hear a reference pitch. Perfect pitch is generally
+      considered genetic or learned only at a very young age, whereas relative
+      picth is a skill that can be developed and improved in almost everyone at any age.
+    </p>
+    <p>
+      Relative pitch is what forms the foundation of a good ‘musical ear’. If a musician has good relative pitch skills they could listen to a piece of music and figure out the melody notes, or the chord sequence, all in their head.
+    </p>
+    <h2>This App, and the Major Scale</h2>
+    <p>
+      This app focusses mostly on learning the sound, or ‘tonality’, of the Major scale. This is one of the most fundamentally useful musical skills in modern, particularly Western, music, where a significant majority of composition uses the Major scale as its foundational sonic palette - ooo what fancy words! This allows musicians with a solid internalisation of the major scale, and knowledge of basic music theory, the ability to effectively understand and navigate what a piece of music is doing, and move that onto their chosen instruments.
+    </p>
+  </div>
+</div>
+<div id="comparison-game" class="hidden">
+  <div class="start-content">
+    <h1 class="game-title">The Relative Pitch Game 🎹🎶</h1>
+    <button id="back-to-home-from-compare" class="green-button back-button">🏠 Home</button>
+    <h2>Higher Or Lower?</h2>
+    <h3></h3>Is the second note higher than, lower than, or the same as the first?</h3>
+    <div></div>
+    <button id="play-comparison" class="green-button">Replay Notes</button>
+    <button id="next-comparison" class="blue-button next-button no-min-height" disabled>Next</button>
+    <div id="compare-buttons">
+      <button class="green-button compare-answer" data-answer="lower">Lower</button>
+      <button class="green-button compare-answer" data-answer="same">The Same</button>
+      <button class="green-button compare-answer" data-answer="higher">Higher</button>
+    </div>
+    <p id="compare-feedback" style="min-height: 1.2em; margin-top: 8px;">Awaiting your answer...</p>
+    <div class="scoreboard">
+      <h3>Score:</h3>
+      <p>Correct: <span id="compare-correct">0</span></p>
+      <p>Incorrect: <span id="compare-incorrect">0</span></p>
+      <p>Total: <span id="compare-total">0</span></p>
+      <p>Accuracy: <span id="compare-accuracy">0.0%</span></p>
+      <button id="reset-compare-score" class="green-button">Reset Score</button>
+    </div>
+  </div>
+</div>
+    <div id="mode-select-screen" class="hidden">
+  <div class="start-content">
+    <h1 class="game-title">The Relative Pitch Game 🎹🎶</h1>
+    <h2 id="selected-scale-label"></h2>
+    <p>How many notes should be included? (This can be changed in game!)</p>
+    <button class="green-button mode-button" data-mode="2">First 2 notes</button>
+    <button class="green-button mode-button" data-mode="3">First 3 notes</button>
+    <button class="green-button mode-button" data-mode="4">First 4 notes</button>
+    <button class="green-button mode-button" data-mode="5">First 5 notes</button>
+    <button class="green-button mode-button" data-mode="6">First 6 notes</button>
+    <button class="green-button mode-button" data-mode="7">First 7 notes</button>
+    <button class="green-button mode-button" data-mode="8">Entire Octave</button>
+    <button class="green-button back-button" id="back-to-scale-select">← Back</button>
+  </div>
+</div>
+
+<div id="chord-mode-select" class="hidden">
+  <div class="start-content">
+    <h1 class="game-title">The Relative Pitch Game 🎹🎶</h1>
+    <h2 id="chord-scale-title">C Major Diatonic Chords</h2>
+    <p>How many chords should be included? (This can be changed in game!)</p>
+    <button class="green-button chord-mode-button" data-chord-count="2">First 2 chords</button>
+    <button class="green-button chord-mode-button" data-chord-count="3">First 3 chords</button>
+    <button class="green-button chord-mode-button" data-chord-count="4">First 4 chords</button>
+    <button class="green-button chord-mode-button" data-chord-count="5">First 5 chords</button>
+    <button class="green-button chord-mode-button" data-chord-count="6">First 6 chords</button>
+    <button class="green-button chord-mode-button" data-chord-count="7">All 7 chords</button>
+    <button class="green-button chord-mode-button" data-chord-count="71">Full Octave, I to I (+1 octave)</button>
+    <button class="green-button back-button" id="back-to-home-from-chords">← Back</button>
+  </div>
+</div>
+
+<div id="chord-scale-menu" class="hidden">
+  <div class="start-content">
+    <h1 class="game-title">The Relative Pitch Game 🎹🎶</h1>
+    <button id="back-to-home-from-chord-scale" class="green-button back-button">🏠 Home</button>
+    <h2>Select a Major Key for Diatonic Chords</h2>
+
+    <h3>Major key with no sharps or flats</h3>
+    <button class="green-button chord-scale-select" data-scale="C">C Major</button>
+
+    <h3>Major keys with sharps (#)</h3>
+    <button class="green-button chord-scale-select" data-scale="G">G Major</button>
+    <button class="green-button chord-scale-select" data-scale="D">D Major</button>
+    <button class="green-button chord-scale-select" data-scale="A">A Major</button>
+    <button class="green-button chord-scale-select" data-scale="E">E Major</button>
+
+    <h3>Major keys with flats (b)</h3>
+    <button class="green-button chord-scale-select" data-scale="F">F Major</button>
+    <button class="green-button chord-scale-select" data-scale="Bb">Bb Major</button>
+    <button class="green-button chord-scale-select" data-scale="Eb">Eb Major</button>
+    <button class="green-button chord-scale-select" data-scale="Ab">Ab Major</button>
+
+    <h3>Enharmonic Major keys</h3>
+    <button class="green-button chord-scale-select" data-scale="B">B Major (Cb Major)</button>
+    <button class="green-button chord-scale-select" data-scale="F#">F# Major (Gb Major)</button>
+    <button class="green-button chord-scale-select" data-scale="C#">C# Major (Db Major)</button>
+  </div>
+</div>
+
+    <div id="game-screen" class="hidden">
+      <h1 class="game-title">The Relative Pitch Game 🎹🎶</h1>
+      <h2 id="scale-label"></h2>
+      <p id="octave-label"></p>
+
+      <div class="controls">
+        <button id="play-reference" class="green-button">Play Reference</button>
+        <button id="play-scale" class="green-button">Play Scale</button>
+        <button id="replay-note" class="green-button">Replay Note</button>
+        <button id="next-button" class="green-button" disabled>Next</button>
+      </div>
+
+      <p id="prompt">Which note was played?</p>
+
+      <div id="note-buttons-container"></div>
+
+      <p id="chord-detail-feedback" class="chord-feedback"></p>
+
+      <div class="toggle-display" id="display-toggle">
+        <p>Display answers as:</p>
+        <button id="display-notes" class="toggle-button selected">Notes</button>
+        <button id="display-degrees" class="toggle-button">Scale Degrees</button>
+      </div>      
+        <button id="back-button" class="green-button back-button">← Back</button>
+      <img id="scale-diagram" src="" alt="Scale Diagram" class="scale-diagram hidden" />
+
+      <div class="bottom-buttons">
+        <div class="mode-adjust-buttons" id="adjust-controls">
+          <p>Adjust note range:</p>
+          <div class="adjust-buttons-row">
+            <button id="remove-note" class="green-button">➖</button>
+            <button id="add-note" class="green-button">➕</button>
+          </div>
+          </div>
+        <div class="scoreboard">
+        <h3>Score:</h3>
+        <p>Correct: <span id="correct-count">0</span></p>
+        <p>Incorrect: <span id="incorrect-count">0</span></p>
+        <p>Total: <span id="total-count">0</span></p>
+        <p>Accuracy: <span id="accuracy">0.0%</span></p>
+      </div>
+        <button id="reset-score" class="green-button">Reset Score</button>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,367 @@
+
+body {
+  font-family: sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#main-menu, #game-screen {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.start-content {
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.green-button, .blue-button, .toggle-button {
+  white-space: nowrap;
+  padding: 8px 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  max-width: 100%;
+}
+
+.green-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.green-button:disabled {
+  background-color: #9E9E9E;
+  cursor: not-allowed;
+}
+
+.blue-button {
+  background-color: #2196F3;
+  color: white;
+}
+
+.wide-chromatic {
+  min-width: 72px; /* Wider for C#/Db, etc. */
+  padding: 6px 10px;
+}
+
+.blue-button.wide-chromatic {
+  min-width: 72px !important;
+}
+
+.correct {
+  background-color: #4CAF50 !important;
+}
+
+.incorrect {
+  background-color: #F44336 !important;
+}
+
+#note-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.blue-button {
+  flex: 1 1 auto;
+  max-width: 40px;
+  min-width: 34px;
+  min-height: 40px;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.wide-label {
+  min-width: 60px;
+}
+
+#remove-note, #add-note {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#reset-score {
+  margin-top: 10px;
+}
+
+.scoreboard {
+  text-align: center;
+}
+
+#game-screen p {
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
+}
+
+.toggle-display {
+  margin: 10px 0;
+}
+
+.toggle-button {
+  background-color: #ddd;
+  color: black;
+  margin: 0 5px;
+}
+
+.toggle-button.selected {
+  background-color: #2196F3;
+  color: white;
+}
+
+.back-button {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.bottom-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.mode-adjust-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.adjust-buttons-row {
+  display: flex;
+  gap: 10px;
+}
+
+.mode-button {
+  margin: 6px 0; /* Adds vertical spacing between mode buttons */
+}
+
+.scale-select {
+  margin: 6px 0; /* Add vertical spacing */
+}
+
+.game-title {
+  margin-top: 4;
+  margin-bottom: 10px;
+}
+
+.scale-diagram {
+  margin-top: 5px;
+  max-height: 130px;
+  max-width: auto;
+  margin-bottom: 0px;
+}
+
+#next-button {
+  background-color: #4492e5;
+  color: white;
+}
+
+#next-button:disabled {
+  background-color: #BDBDBD; /* Light grey when disabled */
+  color: white;
+  cursor: not-allowed;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#next-button.pop-animation {
+  animation: pop 0.3s ease-in-out;
+}
+
+#back-button {
+  display: block;
+  margin: 10px auto;
+}
+
+#adjust-controls.hidden {
+  display: none !important;
+}
+
+#about-btn {
+  display: block;
+  margin: 10px auto 0 auto; /* Top margin + auto left/right centers it */
+}
+
+#next-comparison.pop-animation {
+  animation: pop 0.3s ease-in-out;
+}
+
+#next-comparison {
+  background-color: #4492e5;
+  color: white;
+}
+
+#next-comparison:disabled {
+  background-color: #BDBDBD; /* Light grey when disabled */
+  color: white;
+  cursor: not-allowed;
+}
+
+#compare-buttons {
+  white-space: nowrap;
+  padding: 8px 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  max-width: 100%;
+}
+
+/* Shared height and spacing for all compare game buttons */
+.compare-answer,
+#play-comparison,
+#next-comparison {
+  white-space: nowrap;
+  padding: 8px 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  max-width: 100%;
+}
+
+.no-min-height {
+  min-height: initial;
+}
+
+#play-comparison {
+  margin-top: 20px;
+}
+
+.button-spaced {
+  margin-top: 8px;
+}
+
+.blue-bold-button {
+  background-color: #0882d9; /* Blue */
+  color: rgb(255, 255, 255);
+  font-weight:;
+  text-decoration:;
+  padding: 6px 8px;
+  font-size: 16px;
+  border-radius: 8px;
+  border:  2px solid rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+#major-scale-menu h3 {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+#major-scale-menu .scale-select {
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+#chord-scale-menu .chord-scale-select {
+  margin: 5px 2px; /* Adds vertical and horizontal spacing */
+}
+
+#major-scale-menu .back-button {
+  margin-bottom: 8px;
+}
+
+#major-scale-menu h2 {
+  margin-top: 8px;
+}
+
+#comparison-game .back-button {
+  margin-bottom: 8px;
+}
+
+#comparison-game h2 {
+  margin-top: 8px;
+}
+
+#chromatic-scale-menu .back-button {
+  margin-bottom: 8px;
+}
+
+#chromatic-scale-menu h2 {
+  margin-top: 8px;
+}
+
+#chromatic-scale-menu p {
+  margin-top: 25px;
+}
+
+#major-scale-menu h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+#chord-mode-select .chord-mode-button {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin: 6px 0;
+}
+
+#chord-mode-select h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+#chord-mode-select h2 {
+  margin-top: 8px;
+}
+
+#chord-scale-menu h3 {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.chord-feedback {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #444;
+  text-align: center;
+}
